@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="XiBT36CCxWFWY4lJlYQauZks4T7Q79rb-Whs4athohk" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dang Ner — Virtual Assistant &amp; Customer Support</title>
@@ -208,7 +207,7 @@ footer a:hover{color:var(--white)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
 
 /* TABLET */
@@ -229,8 +228,8 @@ footer a:hover{color:var(--white)}
   .nav-links{display:none}
   .hamburger{display:flex}
   .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{order:2;padding:2.5rem 1.8rem 4rem;justify-content:flex-start;padding-top:3rem}
-  .hero-right{order:1;flex-direction:column}
+  .hero-left{order:1;padding:2.5rem 1.8rem 3rem;justify-content:flex-start;padding-top:3rem}
+  .hero-right{order:2;flex-direction:column}
   .hero-photo-wrap{flex:0 0 340px}
   .hero-info{padding:1.8rem}
   .hero-name{font-size:2.8rem}
@@ -430,7 +429,7 @@ footer a:hover{color:var(--white)}
       <p class="s-label">Let&rsquo;s Work Together</p>
       <h2 class="cta-title">Ready to bring clarity<br>and <em>care</em> to your team</h2>
       <div class="cta-links">
-        <a href="mailto:eraener04@gmail.com" class="btn btn-white">Send Me an Email</a>
+        <a href="#" onclick="window.location='mai'+'lto:eraener04'+'@gmail.com';return false;" class="btn btn-white">Send Me an Email</a>
         <button class="btn btn-outline" onclick="showPage('resume')">View My Resume</button>
       </div>
     </div>
@@ -439,7 +438,7 @@ footer a:hover{color:var(--white)}
   <footer>
     <p>&copy; 2026 Edda Rae &ldquo;Dang&rdquo; Ner &middot; Philippines</p>
     <p>Open to remote roles &middot; Full-time &amp; Part-time</p>
-    <a href="mailto:eraener04@gmail.com">eraener04@gmail.com</a>
+    <a href="#" onclick="window.location='mai'+'lto:eraener04'+'@gmail.com';return false;">eraener04@gmail.com</a>
   </footer>
 
 </div><!-- end mainPage -->
@@ -485,12 +484,14 @@ hbg.addEventListener('click',function(){
 });
 function closeMenu(){hbg.classList.remove('open');mm.classList.remove('open')}
 window.addEventListener('scroll',closeMenu);
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.05});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-// Fallback: if observer doesn't fire (e.g. iframe context), show all after 800ms
-setTimeout(function(){
-  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible');});
-},800);
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  },{threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+}
 </script>
+</body>
+</html>
